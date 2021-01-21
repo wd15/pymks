@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Setup
           command: |
-            conda create -n pip-install python=3
+            conda create -y -n pip-install python=3
             source activate pip-install
             pip install .
 
@@ -86,9 +86,10 @@ jobs:
       - run:
           name: Setup
           command: |
-            conda create -n conda-forge python=3
+            conda create -y -n conda-forge python=3
             source activate conda-forge
-            conda install -c conda-forge pymks
+            conda install -y -c conda-forge pymks
+            conda install -y -c conda-forge cython
             python setup.py develop
 
       - run:
